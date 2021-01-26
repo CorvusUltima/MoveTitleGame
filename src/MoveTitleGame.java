@@ -18,9 +18,14 @@ public class MoveTitleGame {
         // takes input from the keyboard
         player = input.nextLine();
         System.out.print(player+"This is a game of guessing the movie title "+"\n");
-
             Movies movies = new Movies();
             movies.SetAMovie();
+            Player player1=new Player();
+            Player player2=new Player();
+            movies.SetAMovie();
+            FirstToPlay(player1,player2);
+
+
             MatchGame++;
             System.out.print(movies.name);
             System.out.print("\n");
@@ -76,6 +81,33 @@ public class MoveTitleGame {
         else return "Error in Random method";
 
         }
+
+   public static void FirstToPlay(Player player1,Player player2)
+   {
+
+       player1.diceNum=DiceCast();
+       player2.diceNum=DiceCast();
+
+       if (player1.diceNum>player2.diceNum)
+       {
+           player1.FrstToPlay=true;
+       }
+       else if(player1.diceNum<player2.diceNum)
+       {
+           player2.FrstToPlay=true;
+       }
+       else if(player1.diceNum== player2.diceNum)
+       {
+           FirstToPlay( player1, player2);
+       }
+       }
+
+    public static int DiceCast()
+       {
+           int rand = ThreadLocalRandom.current().nextInt(1, 5 + 1);
+           return rand;
+       }
+
 
 
 

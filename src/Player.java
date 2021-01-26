@@ -2,8 +2,9 @@ public class Player {
 
 
     String Name;
-    boolean TurnToPlay;
-    int diceCast=0;
+    boolean FrstToPlay=false;
+    int diceNum=0;
+    String Answer;
 
 
 
