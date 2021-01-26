@@ -54,7 +54,7 @@ public class Movies {
       if(str=="Fight Club")
       {
    name="Fight Club";
-         hint1="Mile";
+         hint1="pera";
          hint2="Mile";
          hint3="Mile";
          hint4="Mile";
