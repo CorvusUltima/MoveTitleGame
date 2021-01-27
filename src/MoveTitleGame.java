@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class MoveTitleGame {
 
-    public static void main(String[] args){
+        public static void main(String[] args){
 
         //nova Grana samo za mene
 
@@ -17,13 +17,12 @@ public class MoveTitleGame {
             Movies movies = new Movies();
             Player player1=new Player();
             Player player2=new Player();
-            StartGame(player1,player2, movies);
+            StartMovieGame(player1,player2, movies);
             MatchGame++;
 
 
 
         }
-
 
         static String randomise() {
 
@@ -55,56 +54,57 @@ public class MoveTitleGame {
 
         }
 
-      public static void FirstToPlay(Player player1,Player player2)
-   {
-       System.out.print(player1.Name+"\t"+"tvoj red da bacis kockicu srecno"+"\n");
+        public static void FirstToPlay(Player player1,Player player2)
+        {
+       System.out.print(player1.Name+"\t"+"\n" + "it's your turn to roll the dice good luck"+"\n");
        pressAnyKeyToContinue();
        player1.diceNum=DiceCast();
-       System.out.print(player1.Name+"\t"+"dobio si"+"\t"+player1.diceNum+"\n");
+       System.out.print(player1.Name+"\t"+"your dice cast is "+"\t"+player1.diceNum+"\n");
 
-       System.out.print(player2.Name+"\t"+"tvoj red da bacis kockicu srecno"+"\n");
+       System.out.print(player2.Name+"\t"+"it's your turn to roll the dice good luck"+"\n");
        pressAnyKeyToContinue();
        player2.diceNum=DiceCast();
-       System.out.print(player2.Name+"\t"+"dobio si"+"\t"+player2.diceNum+"\n");
+       System.out.print(player2.Name+"\t"+"your dice cast is"+"\t"+player2.diceNum+"\n");
 
 
        if (player1.diceNum>player2.diceNum)
        {
            player1.FrstToPlay=true;
-           System.out.print(player1.Name+"\t"+"Bravo ti prvi pogadjas"+"\n");
+           System.out.print(player1.Name+"\t"+"\n" + "Congratulations, you have the right to guess first"+"\n");
        }
        else if(player1.diceNum<player2.diceNum)
        {
            player2.FrstToPlay=true;
-           System.out.print(player2.Name+"\t"+"Bravo ti prvi pogadjas"+"\n");
+           System.out.print(player2.Name+"\t"+"\n" +
+                   "Congratulations, you have the right to guess first"+"\n");
        }
        else if(player1.diceNum== player2.diceNum)
        {
-           System.out.print("Nereseno je ,idemo opet sa kocikacam "+"\n");
+           System.out.print("\n" + "Draw, let's go one more time. "+"\n");
 
            FirstToPlay( player1, player2);
        }
        }
 
        public static int DiceCast()
-       {
+        {
            int rand = ThreadLocalRandom.current().nextInt(1, 5 + 1);
            return rand;
        }
 
-     public static void  StartGame(Player player1,Player player2, Movies movies)
-{
+       public static void  StartMovieGame(Player player1,Player player2, Movies movies)
+        {
 
     movies.SetAMovie();
     Scanner input = new Scanner(System.in);
-    System.out.print("Ime Player 1"+"\n");
+    System.out.print("player 1 name:"+"\n");
     player1.Name = input.nextLine();
-    System.out.print("Ime Player 2"+"\n");
+    System.out.print("player 2 name:"+"\n");
     player2.Name = input.nextLine();
-    System.out.print("Ovo je igra pogadjanja,prvi pogadja igrac koji bude imao vise srece na kockici"+"\n");
+    System.out.print("\n" + "this is a quess movie game,"+"\n"+"first played by the player who gets the higher number on the dice"+"\n");
     pressAnyKeyToContinue();
     FirstToPlay(player1,player2);
-    System.out.print("vreme je za prvi hint"+"\n");
+    System.out.print("\n" + "It's time to guess"+"\n");
     pressAnyKeyToContinue();
     playingOrder(player1,player2,movies);
 
@@ -116,8 +116,8 @@ public class MoveTitleGame {
 
 }
 
-    public static void pressAnyKeyToContinue()
-    {
+       public static void pressAnyKeyToContinue()
+        {
         System.out.println("Press Enter key to continue...");
         try
         {
@@ -127,8 +127,8 @@ public class MoveTitleGame {
         {}
     }
 
-    public static void playingOrder(Player player1,Player player2,Movies movies)
-    {
+        public static void playingOrder(Player player1,Player player2,Movies movies)
+        {
         Scanner input = new Scanner(System.in);
         String answer = input.nextLine();
 
@@ -136,26 +136,25 @@ public class MoveTitleGame {
        {
            for(int i=0;i<5;i++)
            {
-           System.out.print(player1.Name+"\t"+"prvi pogadja"+"\n");
+           System.out.print(player1.Name+"\t"+"is a first to play"+"\n");
            System.out.print(movies.hints[i]+"\n");
-           System.out.print(player1.Name+"\t"+"Ukucaj svoj odgovor"+"\n");
+           System.out.print(player1.Name+"\t"+"Type your answer"+"\n");
            player1.Answer = input.nextLine();
 
            if ( player1.Answer.equals(movies.name))
            {
                System.out.print("\n");
-               System.out.print("Bravo ,bas si jebac ");
+               System.out.print("\n" + "Congratulations, the answer is correct ");
                break;
            }
 
-           else { System.out.print( player2.Name+"\t"+" pogadja sad"+"\n");
-               System.out.print(player2.Name+"\t"+"Ukucaj svoj odgovor"+"\n");
+           else { System.out.print( player2.Name+"\t"+" now is your turn"+"\n");
+               System.out.print(player2.Name+"\t"+"Type your answer"+"\n");
                player2.Answer = input.nextLine();
-
                if ( player2.Answer.equals(movies.name))
                {
                    System.out.print("\n");
-                   System.out.print("Bravo igrac2 ,bas si jebac ");
+                   System.out.print("Congratulations, the answer is correct ");
                    break;
                }
            }
@@ -169,26 +168,27 @@ public class MoveTitleGame {
                   for(int i=0;i<5;i++)
 
            {
-           System.out.print(player2.Name+"prvi pogadja"+"\n");
+           System.out.print(player2.Name+"is a first to play"+"\n");
            System.out.print(movies.hints[i]+"\n");
-           System.out.print(player2.Name+"\t"+"Ukucaj svoj odgovor"+"\n");
+           System.out.print(player2.Name+"\t"+"Type your answer"+"\n");
            player2.Answer = input.nextLine();
 
            if ( player2.Answer.equals(movies.name))
            {
                System.out.print("\n");
-               System.out.print("Bravo ,bas si jebac ");
+               System.out.print("Congratulations, the answer is correct ");
            }
 
            else {
-               System.out.print( player1.Name+"\t"+" pogadja sad"+"\n");
-               System.out.print(player1.Name+"\t"+"Ukucaj svoj odgovor"+"\n");
+               System.out.print( player1.Name+"\t"+" your turn to shoot "+"\n");
+               System.out.print(player1.Name+"\t"+"Type your answer"+"\n");
                player1.Answer = input.nextLine();
 
                if ( player1.Answer.equals(movies.name))
                {
                    System.out.print("\n");
-                   System.out.print("Bravo igrac2 ,bas si jebac ");
+                   System.out.print("Congratulations, the answer is correct ");
+                   break;
                }
 
            }
