@@ -1,17 +1,15 @@
 public class Movies {
 
    String name;
-   String hint1;
-   String hint2;
-   String hint3;
-   String hint4;
-   String hint5;
+
+   String[] hints=new String[5];
 
    boolean Inception=false;
    boolean Godfather=false;
    boolean Matrix=false;
    boolean FightClub=false;
    boolean Goodfellas=false;
+
 
     void SetAMovie() {
       String str=MoveTitleGame.randomise();
@@ -21,54 +19,54 @@ public class Movies {
       if(str=="Inception")
       {
          name="Inception";
-         hint1="Mile";
-         hint2="Mile";
-         hint3="Mile";
-         hint4="Mile";
-         hint5="Mile";
+         hints[0]="Mile1";
+         hints[1]="Mile2";
+         hints[2]="Mile3";
+         hints[3]="Mile4";
+         hints[4]="Mile5";
 
       }
 
       if(str=="Godfather")
       {
          name="Godfather";
-         hint1="Mile";
-         hint2="Mile";
-         hint3="Mile";
-         hint4="Mile";
-         hint5="Mile";
+          hints[0]="Mile1";
+          hints[1]="Mile2";
+          hints[2]="Mile3";
+          hints[3]="Mile4";
+          hints[4]="Mile5";
 
       }
       if(str=="Matrix")
       {
 
          name ="Matrix";
-         hint1="Mile";
-         hint2="Mile";
-         hint3="Mile";
-         hint4="Mile";
-         hint5="Mile";
+          hints[0]="Mile1";
+          hints[1]="Mile2";
+          hints[2]="Mile3";
+          hints[3]="Mile4";
+          hints[4]="Mile5";
 
 
       }
       if(str=="Fight Club")
       {
    name="Fight Club";
-         hint1="Mile";
-         hint2="Mile";
-         hint3="Mile";
-         hint4="Mile";
-         hint5="Mile";
+          hints[0]="Mile1";
+          hints[1]="Mile2";
+          hints[2]="Mile3";
+          hints[3]="Mile4";
+          hints[4]="Mile5";
 
       }
       if(str=="Goodfellas")
       {
     name="GoodFellas";
-         hint1="Mile";
-         hint2="Mile";
-         hint3="Mile";
-         hint4="Mile";
-         hint5="Mile";
+          hints[0]="Mile1";
+          hints[1]="Mile2";
+          hints[2]="Mile3";
+          hints[3]="Mile4";
+          hints[4]="Mile5";
       }
 
 
