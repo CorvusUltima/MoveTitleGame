@@ -1,5 +1,7 @@
 
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.Scanner;
 
@@ -8,7 +10,7 @@ public class MoveTitleGame {
         public static void main(String[] args){
 
         //nova Grana samo za mene
-
+            gui();
      int MatchGame=0;
      String answer;
 
@@ -141,7 +143,7 @@ public class MoveTitleGame {
            System.out.print(player1.Name+"\t"+"Type your answer"+"\n");
            player1.Answer = input.nextLine();
 
-           if ( player1.Answer.equals(movies.name))
+           if ( player1.Answer.toUpperCase().equals(movies.name.toUpperCase()))
            {
                System.out.print("\n");
                System.out.print("\n" + "Congratulations, the answer is correct ");
@@ -151,7 +153,7 @@ public class MoveTitleGame {
            else { System.out.print( player2.Name+"\t"+" now is your turn"+"\n");
                System.out.print(player2.Name+"\t"+"Type your answer"+"\n");
                player2.Answer = input.nextLine();
-               if ( player2.Answer.equals(movies.name))
+               if ( player2.Answer.toUpperCase().equals(movies.name.toUpperCase()))
                {
                    System.out.print("\n");
                    System.out.print("Congratulations, the answer is correct ");
@@ -173,7 +175,7 @@ public class MoveTitleGame {
            System.out.print(player2.Name+"\t"+"Type your answer"+"\n");
            player2.Answer = input.nextLine();
 
-           if ( player2.Answer.equals(movies.name))
+           if (player2.Answer.toUpperCase().equals(movies.name.toUpperCase()))
            {
                System.out.print("\n");
                System.out.print("Congratulations, the answer is correct ");
@@ -184,7 +186,7 @@ public class MoveTitleGame {
                System.out.print(player1.Name+"\t"+"Type your answer"+"\n");
                player1.Answer = input.nextLine();
 
-               if ( player1.Answer.equals(movies.name))
+               if ( player1.Answer.toUpperCase().equals(movies.name.toUpperCase()))
                {
                    System.out.print("\n");
                    System.out.print("Congratulations, the answer is correct ");
@@ -196,5 +198,33 @@ public class MoveTitleGame {
 
        }
     }
+
+    public static void gui()
+    {
+
+        BorderLayout borderlayout = new BorderLayout();
+
+        JFrame frame = new JFrame("Movie Game For Jensen Team Project");
+        frame.setVisible(true);
+        frame.setSize(600,400);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        Panel p2 = new Panel();
+        p2.setLayout(new BorderLayout());
+        p2.add(new Label("Player 1"), BorderLayout.WEST); //player 1 label
+        p2.add(new Label("Player 2"), BorderLayout.EAST); //player 2 label
+        p2.add(new Label("MOVIE GAME"), BorderLayout.NORTH );
+        p2.setBackground(new Color(156, 93, 82));
+        p2.setFont(new Font("sansserif", Font.BOLD, 18));
+        frame.add(p2);
+        JLabel player1Lbl = new JLabel("Player 1");
+        p2.add(player1Lbl, BorderLayout.WEST);
+        String player1Name = JOptionPane.showInputDialog("Player 1 enter your name");
+        player1Lbl.setText(player1Name);
+
+
+    }
+
+
 
 }
