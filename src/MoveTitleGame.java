@@ -6,22 +6,40 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.Scanner;
 
 public class MoveTitleGame {
+     static int MatchGame=2;
+     static int player1Points=0;
+     static int player2Points=0;
+     static int maxPoints=30;
 
         public static void main(String[] args){
 
         //nova Grana samo za mene
-            gui();
-     int MatchGame=0;
-     String answer;
 
 
-
-            Movies movies = new Movies();
+           String answer;
             Player player1=new Player();
             Player player2=new Player();
-            StartMovieGame(player1,player2, movies);
-            MatchGame++;
+            PlayerNames(player1,player2);
 
+        for (int i=0;i<MatchGame;i++)
+        {
+            Movies movies = new Movies();
+            StartMovieGame(player1,player2, movies);
+
+        }
+        if (player1Points>player2Points)
+        {
+            System.out.print("Congratulations "+"\t"+player1.Name+"is victorious ");
+
+        }
+        else if(player2Points>player1Points)
+        {
+            System.out.print("Congratulations "+"\t"+player2.Name+"is victorious ");
+        }
+        else if(player2Points==player1Points)
+        {
+            System.out.print(" DRAW");
+        }
 
 
         }
@@ -98,11 +116,6 @@ public class MoveTitleGame {
         {
 
     movies.SetAMovie();
-    Scanner input = new Scanner(System.in);
-    System.out.print("player 1 name:"+"\n");
-    player1.Name = input.nextLine();
-    System.out.print("player 2 name:"+"\n");
-    player2.Name = input.nextLine();
     System.out.print("\n" + "this is a quess movie game,"+"\n"+"first played by the player who gets the higher number on the dice"+"\n");
     pressAnyKeyToContinue();
     FirstToPlay(player1,player2);
@@ -136,7 +149,7 @@ public class MoveTitleGame {
 
        if(player1.FrstToPlay)
        {
-           for(int i=0;i<5;i++)
+           for(int i=0;i<5;i++,maxPoints-=5)
            {
            System.out.print(player1.Name+"\t"+"is a first to play"+"\n");
            System.out.print(movies.hints[i]+"\n");
@@ -147,6 +160,8 @@ public class MoveTitleGame {
            {
                System.out.print("\n");
                System.out.print("\n" + "Congratulations, the answer is correct ");
+               player1Points+=maxPoints;
+               System.out.print(player1.Name+"\t"+"now have "+"\t"+player1Points+"\t"+"points"+"\n");
                break;
            }
 
@@ -157,7 +172,10 @@ public class MoveTitleGame {
                {
                    System.out.print("\n");
                    System.out.print("Congratulations, the answer is correct ");
+                   player2Points+=maxPoints;
+                   System.out.print(player2.Name+"\t"+"now have "+"\t"+player2Points+"\t"+"points"+"\n");
                    break;
+
                }
            }
 
@@ -179,6 +197,9 @@ public class MoveTitleGame {
            {
                System.out.print("\n");
                System.out.print("Congratulations, the answer is correct ");
+               player2Points+=maxPoints;
+               System.out.print(player2.Name+"\"\\t\"+now have "+"\t"+player2Points+"\t"+"points");
+               break;
            }
 
            else {
@@ -189,7 +210,9 @@ public class MoveTitleGame {
                if ( player1.Answer.toUpperCase().equals(movies.name.toUpperCase()))
                {
                    System.out.print("\n");
-                   System.out.print("Congratulations, the answer is correct ");
+                   System.out.print("Congratulations, the answer is correct "+"\n");
+                   player1Points+=maxPoints;
+                   System.out.print(player1.Name+"\t"+"now have "+"\t"+player1Points+"\t"+"points"+"\n");
                    break;
                }
 
@@ -198,6 +221,13 @@ public class MoveTitleGame {
 
        }
     }
+       public static void PlayerNames(Player player1,Player player2){
+           Scanner input = new Scanner(System.in);
+           System.out.print("player 1 name:"+"\n");
+           player1.Name = input.nextLine();
+           System.out.print("player 2 name:"+"\n");
+           player2.Name = input.nextLine();
+       }
 
     public static void gui()
     {
