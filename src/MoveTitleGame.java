@@ -2,21 +2,34 @@
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.Scanner;
 
+
 public class MoveTitleGame {
+     static String file_name="HS.txt";
      static int MatchGame=2;
      static int player1Points=0;
      static int player2Points=0;
      static int maxPoints=30;
+     static int highScorePoints=0;
 
-        public static void main(String[] args){
+
+
+
+        public static void main(String[] args) throws IOException {
 
         //nova Grana samo za mene
 
 
-           String answer;
+
+
+            Write HighScore=new Write(file_name,false);
+            HighScore.ReadFile(file_name);
+
+
+            String answer;
             Player player1=new Player();
             Player player2=new Player();
             PlayerNames(player1,player2);
@@ -29,14 +42,38 @@ public class MoveTitleGame {
         }
         if (player1Points>player2Points)
         {
-            System.out.print("Congratulations "+"\t"+player1.Name+"is victorious ");
+            System.out.println("Congratulations "+"\t"+player1.Name+"is victorious ");
+            if (player1Points>highScorePoints)
+            {System.out.println("Congratulations "+"\t"+player1.Name+"\t"+"set a new record  ");
+                try {
+                    HighScore.WriteToFile(player1.Name);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                HighScore.ReadFile(file_name);
+
+            }
 
         }
         else if(player2Points>player1Points)
         {
-            System.out.print("Congratulations "+"\t"+player2.Name+"is victorious ");
+            System.out.println("Congratulations "+"\t"+player2.Name+"\t"+"is victorious ");
+            if(player2Points>highScorePoints)
+            {
+                System.out.println("Congratulations "+"\t"+player2.Name+"\t"+"set a new record  ");
+                try {
+                    HighScore.WriteToFile(player1.Name);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                HighScore.ReadFile(file_name);
+
+
+            }
+
+
         }
-        else if(player2Points==player1Points)
+        else
         {
             System.out.print(" DRAW");
         }
