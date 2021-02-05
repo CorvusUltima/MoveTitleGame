@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.TimeUnit ;
 
 public class Player {
 
@@ -23,16 +24,40 @@ public class Player {
                 System.out.print(player1.name + "\t" + "\n" + "it's your turn to roll the dice good luck" + "\n");
                 player1.diceNum = DiceCast();
                 System.out.print(player1.name + "\t" + "your dice cast is " + "\t" + player1.diceNum + "\n");
+                try {
+                        TimeUnit.SECONDS.sleep(3);
+                } catch (InterruptedException e) {
+                        e.printStackTrace();
+                }
                 System.out.print(player2.name + "\t" + "it's your turn to roll the dice good luck" + "\n");
+                try {
+                        TimeUnit.SECONDS.sleep(3);
+                } catch (InterruptedException e) {
+                        e.printStackTrace();
+                }
                 player2.diceNum = DiceCast();
                 System.out.print(player2.name + "\t" + "your dice cast is" + "\t" + player2.diceNum + "\n");
                 if (player1.diceNum < player2.diceNum) {
                         System.out.println(player2.diceNum + " " + "will go first :");
+                        try {
+                                TimeUnit.SECONDS.sleep(3);
+                        } catch (InterruptedException e) {
+                                e.printStackTrace();
+                        }
                 } else if (player1.diceNum > player2.diceNum) {
                         System.out.println(player1.name + " " + "goes first");
+                        try {
+                                TimeUnit.SECONDS.sleep(3);
+                        } catch (InterruptedException e) {
+                                e.printStackTrace();
+                        }
                 } else if (player1.diceNum == player2.diceNum) {
                         System.out.print("\n" + "Draw, let's go one more time. " + "\n");
-
+                        try {
+                                TimeUnit.SECONDS.sleep(3);
+                        } catch (InterruptedException e) {
+                                e.printStackTrace();
+                        }
                         FirstToPlay(player1, player2);
                 }
 

@@ -2,8 +2,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Movie {
 
-    String name;
-    String hints[]=new String[5];
+
 
     static String randomise() {
 
@@ -33,6 +32,41 @@ public class Movie {
         }
         else return "Error in Random method";
 
+    }
+
+
+    {
+        String hints[]=new String[3];
+        if ( randomise()=="Inception")
+        {
+            hints[0]="bulja";
+            hints[1]="bulja";
+            hints[2]="bulja";
+        }
+        if ( randomise()=="Godfathe")
+        {
+            hints[0]="bulja";
+            hints[1]="bulja";
+            hints[2]="bulja";
+        }
+        if ( randomise()=="Matrix")
+        {
+            hints[0]="bulja";
+            hints[1]="bulja";
+            hints[2]="bulja";
+        }
+        if ( randomise()=="FightClub")
+        {
+            hints[0]="bulja";
+            hints[1]="bulja";
+            hints[2]="bulja";
+        }
+      else  if ( randomise()=="Goodfellas")
+        {
+            hints[0]="bulja";
+            hints[1]="bulja";
+            hints[2]="bulja";
+        }
     }
 
 }
