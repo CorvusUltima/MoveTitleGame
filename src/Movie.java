@@ -37,8 +37,6 @@ String[] hints;
     void SetAMovie() {
         String str = randomise();
 
-        // Movies movies=new Movies();
-
         if (str.equals("Inception")) {
             name = "Inception";
             hints[0] = "Is a 2010 science fiction action film";
