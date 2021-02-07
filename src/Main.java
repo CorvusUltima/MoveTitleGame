@@ -15,32 +15,7 @@ public class Main {
         String movie = Movie.randomise();
 
 
-        String hints[] = new String[3];
-        if (Movie.randomise() == "Inception") {
-            hints[0] = "bulja";
-            hints[1] = "bulja";
-            hints[2] = "bulja";
-        }
-        if (Movie.randomise() == "Godfathe") {
-            hints[0] = "bulja";
-            hints[1] = "bulja";
-            hints[2] = "bulja";
-        }
-        if (Movie.randomise() == "Matrix") {
-            hints[0] = "bulja";
-            hints[1] = "bulja";
-            hints[2] = "bulja";
-        }
-        if (Movie.randomise() == "FightClub") {
-            hints[0] = "bulja";
-            hints[1] = "bulja";
-            hints[2] = "bulja";
-        } else if (Movie.randomise() == "Goodfellas") {
-            hints[0] = "bulja";
-            hints[1] = "bulja";
-            hints[2] = "bulja";
-        }
-        System.out.println("movie is " + movie + hints[0]);
+        System.out.println("movie is " + movie );
     }
 }
 
