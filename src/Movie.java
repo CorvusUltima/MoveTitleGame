@@ -2,10 +2,11 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Movie {
 
-String name;
-String[] hints;
+     String name;
 
-    static String randomise() {
+     String[] hints=new String[5];
+
+   public String randomise() {
 
         String Inception = "Inception";
         String Godfather = "Godfather";
@@ -85,7 +86,6 @@ String[] hints;
             hints[4] = "Good :::?";
 
         }
-
 
     }
 }
