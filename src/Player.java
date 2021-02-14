@@ -6,6 +6,8 @@ public class Player {
 
         String name;
         int diceNum;
+        boolean FirsttoPlay;
+        String answer;
 
         public static void PlayerNames(Player player1, Player player2) {
                 Scanner input = new Scanner(System.in);
@@ -39,6 +41,7 @@ public class Player {
                 System.out.print(player2.name + "\t" + "your dice cast is" + "\t" + player2.diceNum + "\n");
                 if (player1.diceNum < player2.diceNum) {
                         System.out.println(player2.name + " " + "will go first :");
+                        player2.FirsttoPlay = true;
                         try {
                                 TimeUnit.SECONDS.sleep(3);
                         } catch (InterruptedException e) {
@@ -46,6 +49,7 @@ public class Player {
                         }
                 } else if (player1.diceNum > player2.diceNum) {
                         System.out.println(player1.name + " " + "goes first");
+                        player1.FirsttoPlay = true;
                         try {
                                 TimeUnit.SECONDS.sleep(3);
                         } catch (InterruptedException e) {
@@ -59,7 +63,12 @@ public class Player {
                                 e.printStackTrace();
                         }
                         FirstToPlay(player1, player2);
+
+
                 }
 
+
         }
+
 }
+
