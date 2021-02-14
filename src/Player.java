@@ -7,7 +7,7 @@ public class Player {
         String name;
         int diceNum;
         boolean FirsttoPlay;
-        String answer;
+
 
         public static void PlayerNames(Player player1, Player player2) {
                 Scanner input = new Scanner(System.in);
