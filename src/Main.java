@@ -5,10 +5,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.FileWriter;
 public class Main {
-    int Points = 50;
-    static String p1answer;
-    static String p2answer;
-
 
     public static void main(String[] args) {
 
@@ -19,37 +15,45 @@ public class Main {
         Movie movie = new Movie();
         movie.SetAMovie();
         Scanner input = new Scanner(System.in);
-        for (int i = 0; i < 2; i++) {
-            System.out.println("Guess the movie name by hint : " + " " + movie.hints[i]);
+        for (int i = 0; i < 5; i++) {
 
             if (player2.FirsttoPlay == true) {
+                System.out.println("Guess the movie name by hint : " + " " + movie.hints[i]);
                 System.out.println(player2.name + " " + "Enter your answer:");
-                p2answer = input.nextLine();
-                if (p2answer.equalsIgnoreCase(movie.name)) {
+                player2.answer = input.nextLine();
+                if (player2.answer.equalsIgnoreCase(movie.name)) {
                     System.out.println("Good guess!!");
-                } else if (!p2answer.equalsIgnoreCase(movie.name)) {
-                    System.out.println("your answer in not correct" + player1.name + "It is your chance now enter you answer:");
-                    p1answer = input.nextLine();
-                    if (p1answer.equalsIgnoreCase(movie.name)) {
+                    movie.SetAMovie();
+
+                } else if (!player2.answer.equalsIgnoreCase(movie.name)) {
+                    System.out.println("your answer in not correct" +"\n"+ player1.name +" "+ "It is your chance now enter you answer:");
+                    player1.answer = input.nextLine();
+                    player2.Points-=10;
+                    if (player1.answer.equalsIgnoreCase(movie.name)) {
                         System.out.println("Good guess!!");
-                    } else if (!p1answer.equalsIgnoreCase(movie.name)) {
+                        movie.SetAMovie();
+                    } else if (!player1.answer.equalsIgnoreCase(movie.name)) {
                         System.out.println("Both answers are wrong");
+                        player1.Points-=10;
                     }
                 } else if (player1.FirsttoPlay == true) {
-
+                    System.out.println("Guess the movie name by hint : " + " " + movie.hints[i]);
                     System.out.println(player1.name + " " + "Enter your answer:");
-                    p1answer = input.nextLine();
-                    System.out.println(p1answer);
-                    if (p1answer.equalsIgnoreCase(movie.name)) {
+                    player1.answer = input.nextLine();
+                    System.out.println(player1.answer);
+                    if (player1.answer.equalsIgnoreCase(movie.name)) {
                         System.out.println("Good guess!!");
-                    } else if (!p1answer.equalsIgnoreCase(movie.name)) {
-                        System.out.println("your answer in not correct" + player2.name + "It is your chance now enter you answer:");
-                        p2answer = input.nextLine();
-                        if (p2answer.equalsIgnoreCase(movie.name)) {
+                        movie.SetAMovie();
+                    } else if (!player1.answer.equalsIgnoreCase(movie.name)) {
+                        System.out.println("your answer in not correct"+"\n" + player2.name +" "+ "It is your chance now enter you answer:");
+                        player2.answer = input.nextLine();
+                        player1.Points-=10;
+                        if (player2.answer.equalsIgnoreCase(movie.name)) {
                             System.out.println("Good guess!!");
-                        } else if (!p2answer.equalsIgnoreCase(movie.name)) {
+                            movie.SetAMovie();
+                        } else if (!player2.answer.equalsIgnoreCase(movie.name)) {
                             System.out.println("Both answers are wrong");
-
+                            player2.Points-=10;
                         }
                     }
 
@@ -58,6 +62,7 @@ public class Main {
 
             }
         }
+        System.out.println(player1.name+" "+"have"+player1.Points+" "+player2.name+" "+"have" + player2.Points+" ");
     }
 }
 

@@ -7,6 +7,8 @@ public class Player {
         String name;
         int diceNum;
         boolean FirsttoPlay;
+        String answer;
+        int Points = 50;
 
 
         public static void PlayerNames(Player player1, Player player2) {
@@ -63,8 +65,6 @@ public class Player {
                                 e.printStackTrace();
                         }
                         FirstToPlay(player1, player2);
-
-
                 }
 
 
