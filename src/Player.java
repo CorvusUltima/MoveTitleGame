@@ -38,7 +38,7 @@ public class Player {
                 player2.diceNum = DiceCast();
                 System.out.print(player2.name + "\t" + "your dice cast is" + "\t" + player2.diceNum + "\n");
                 if (player1.diceNum < player2.diceNum) {
-                        System.out.println(player2.diceNum + " " + "will go first :");
+                        System.out.println(player2.name + " " + "will go first :");
                         try {
                                 TimeUnit.SECONDS.sleep(3);
                         } catch (InterruptedException e) {
