@@ -6,6 +6,9 @@ public class MoveTitleGame {
     static int dice1;
     static int dice2;
     static int diceWinner;
+    static Player player1 = new Player();
+    static Player player2 = new Player();
+    static Scanner scan = new Scanner(System.in);
 
     public static void main(String[]args ) {
 
@@ -13,32 +16,9 @@ public class MoveTitleGame {
 
         //movies m = new movies();
 
-        Player player1 = new Player();
-
-        Player player2 = new Player();
-
         Scanner scan = new Scanner(System.in);
+/*
 
-        System.out.println("Welcome");
-        System.out.println("============================");
-        System.out.println("Enter name");
-        System.out.print("Player 1:");
-
-        player1.setName(scan.next());  // Read user input
-        System.out.println("============================");
-        System.out.println("Enter name");
-        System.out.print("Player 2:");
-
-
-
-        player2.setName(scan.next());
-        System.out.println("============================");
-        System.out.println("Player 1: " + player1.getName() + " Player 2: " + player2.getName());// Output user inp
-
-        System.out.println("============================");
-        System.out.print("press 1 to Start:");
-
-        scan.next();
 
         System.out.println("============================");
         System.out.println("roll a dice to see who goes first");
@@ -71,7 +51,63 @@ public class MoveTitleGame {
         if (player1.getTurn()){
             System.out.println("hej");
         }
+        */
+        boolean quit = false;
 
+        while(quit != true)
+        {
+            startMenu();
+
+            switch(scan.nextInt()) {
+
+                case 1: System.out.println("Start game");
+
+                    break;
+
+                case 2: registerPlayers();
+
+                    if(scan.nextInt() == 1) {
+                         System.out.println("Start game");
+                    } else quit = true;
+
+                    break;
+
+                case 3: quit = true;
+
+            }
+
+        }
+
+    }
+    static void startMenu() {
+        System.out.println("============================");
+        System.out.println("1. Start game");
+        System.out.println("2. Register player");
+        System.out.println("3. Quit");
+        System.out.println("============================");
+        System.out.print("Enter choice:");
+
+    }
+    static void registerPlayers() {
+
+        System.out.println("============================");
+        System.out.println("Enter name");
+        System.out.print("Player 1:");
+        player1.setName(scan.next());
+
+
+        System.out.println("============================");
+        System.out.println("Enter name");
+        System.out.print("Player 2:");
+        player2.setName(scan.next());
+
+        System.out.println("============================");
+        System.out.println("Player 1: " + player1.getName() + "\n" + "Player 2: " + player2.getName());
+
+        System.out.println("============================");
+        System.out.println("press:");
+        System.out.println("1. start");
+        System.out.println("2. quit");
     }
 
 }
