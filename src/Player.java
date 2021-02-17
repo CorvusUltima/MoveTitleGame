@@ -42,7 +42,7 @@ public class Player {
                 player2.diceNum = DiceCast();
                 System.out.print(player2.name + "\t" + "your dice cast is" + "\t" + player2.diceNum + "\n");
                 if (player1.diceNum < player2.diceNum) {
-                        System.out.println(player2.name + " " + "will go first :");
+                        System.out.println(player2.name + " " + "will go first ");
                         player2.FirsttoPlay = true;
                         try {
                                 TimeUnit.SECONDS.sleep(3);
@@ -69,6 +69,16 @@ public class Player {
 
 
         }
-
+public static void winner(int a,int b) {
+        Player player1 = new Player();
+        Player player2 = new Player();
+        if (a > b) {
+                System.out.println("Winner is  " + player1.name);
+        } else if (a < b) {
+                System.out.println("Winner is  " + player2.name);
+        } else {
+                System.out.println("It's a draw !");
+        }
+}
 }
 
