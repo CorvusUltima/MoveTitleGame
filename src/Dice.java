@@ -4,7 +4,7 @@ public class Dice {
 
     private final static int numberOfSides = 6;
 
-    static int rollDice() {
+     public int rollDice() {
 
         int result;
         Random randomNumberGenerator = new Random();
