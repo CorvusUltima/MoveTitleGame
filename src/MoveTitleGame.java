@@ -8,12 +8,12 @@ public class MoveTitleGame {
 
     static int dice1;
     static int dice2;
-    static int diceWinner;
+    static String diceWinner;
     static Player player1 = new Player();
     static Player player2 = new Player();
     static Scanner scan = new Scanner(System.in);
     static Dice dice = new Dice();
-    //movies m = new movies();
+    Movies movies = new Movies();
     static Random random = new Random();
 
     static int movieCounter = 0;
@@ -22,21 +22,22 @@ public class MoveTitleGame {
     static Movies secondMovie = new Movies();
 
     static boolean quit = false;
+    static ArrayList<String> movieList = new ArrayList<>();
 
 
 
     public static void main(String[]args ) {
 
-        ArrayList<String> movieList = new ArrayList<>();
         movieList.add("Matrix");
         movieList.add("Godfather");
-
-        firstMovie.name = movieList.get(0);
-        secondMovie.name = movieList.get(0);
-        firstMovie.setAMovie();
-
         Collections.shuffle(movieList);
 
+        firstMovie.name = movieList.get(0);
+        secondMovie.name = movieList.get(1);
+        firstMovie.setAMovie();
+        secondMovie.setAMovie();
+
+        //System.out.println(movieList.get(movieCounter));
 
         boolean quit = false;
 
@@ -45,46 +46,42 @@ public class MoveTitleGame {
             startMenu();
 
             switch (scan.nextInt()) {
-                case 1 -> decideTurn();
-                case 2 -> {
-                    registerPlayers();
-                    if (scan.nextInt() == 1) {
-                        decideTurn();
-                    } else quit = true;
+                case 1 -> {
+                    if(player1.getName() == null) {
+                        System.out.println("You have to register 2 players first");
+                        registerPlayers();
+                    } else decideTurn();
                 }
-                case 3 -> quit = true;
+                case 2 -> registerPlayers();
+                case 3 -> showScore();
+                case 4 -> quit = true;
             }
         }
 
     }
     static void startMenu() {
         System.out.println("============================");
-        System.out.println("1. Start game");
-        System.out.println("2. Register player");
-        System.out.println("3. Quit");
+        System.out.println("1. Start Game");
+        System.out.println("2. Register Player");
+        System.out.println("3. Show Score");
+        System.out.println("4. Quit");
         System.out.println("============================");
         System.out.print("Enter choice:");
 
     }
     static void registerPlayers() {
         System.out.println("============================");
-        System.out.println("Enter name");
-        System.out.print("Player 1:");
+        System.out.println("Enter Player 1 Name:");
         player1.setName(scan.next());
 
 
         System.out.println("============================");
-        System.out.println("Enter name");
-        System.out.print("Player 2:");
+        System.out.println("Enter Player 2 Name");
         player2.setName(scan.next());
 
         System.out.println("============================");
         System.out.println("Player 1: " + player1.getName() + "\n" + "Player 2: " + player2.getName());
 
-        System.out.println("============================");
-        System.out.println("Press:");
-        System.out.println("1. start");
-        System.out.println("2. quit");
     }
 
     static void decideTurn() {
@@ -101,7 +98,7 @@ public class MoveTitleGame {
         dice1 = dice.rollDice();
 
         System.out.println("============================");
-        System.out.println("Player 1 rolled:" + dice1);
+        System.out.println(player1.getName() + " rolled:" + dice1);
         System.out.println("Press:");
         System.out.println("1. roll dice");
         System.out.println("2. quit");
@@ -110,32 +107,38 @@ public class MoveTitleGame {
         dice2 = dice.rollDice();
 
         System.out.println("============================");
-        System.out.println("Player 2 rolled:" + dice2);
+        System.out.println(player2.getName() + " rolled:" + dice2);
 
-        if (dice1 > dice2) {
-            System.out.println("============================");
-            System.out.println("Player 1 goes first");
-            System.out.println("Press:");
-            System.out.println("1. Start Game");
-            System.out.println("2. Quit");
-            scan.next();
+        boolean a = true;
+        while(a) {
+
+            if (dice1 > dice2) {
+
+        diceWinner = player1.getName();
 
             player1.setTurnTrue();
             player2.setTurnFalse();
+            a = false;
+
         }
-        if (dice2 > dice1) {
-            System.out.println("============================");
-            System.out.println("Player 2 goes first");
-            System.out.println("Press:");
-            System.out.println("1. Start Game");
-            System.out.println("2. Quit");
-            scan.next();
+        else if (dice2 > dice1) {
+            diceWinner = player2.getName();
 
             player2.setTurnTrue();
             player1.setTurnFalse();
+            a = false;
 
-
-        } else {decideTurn();}
+        } else if (dice1 == dice2) {
+            System.out.println("Re-Roll");
+                dice1 = dice.rollDice();
+                dice2 = dice.rollDice();
+                System.out.println("Player 1:" + dice1 + "\n" + "Player 2:" + dice2);
+        } }
+            System.out.println("============================");
+            System.out.println(diceWinner + " Goes First");
+            System.out.println("Press:");
+            System.out.println("1. Start Game");
+            System.out.println("2. Menu");
 
         switch (scan3.nextInt()) {
             case 1 -> game();
@@ -144,57 +147,97 @@ public class MoveTitleGame {
     }
 
     static void game() {
-        Scanner scan2 = new Scanner(System.in);
+        int rounds;
+        System.out.println("Enter Number of Rounds");
+        rounds = scan.nextInt() * 2;
 
-        int tries = 0;
+        for (int i = 0; i < rounds; i++) {
 
-        String answer = "answer";
+            Scanner scan2 = new Scanner(System.in);
 
-        while(!firstMovie.name.equals(answer)) {
+            int tries = 0;
+            int a = 0;
+
+            String answer = "answer";
+            String movie;
+            Movies cMovie = new Movies();
+            movie = movieList.get(movieCounter);
+            cMovie.name = movie;
+            cMovie.setAMovie();
 
 
-            System.out.println("============================");
-            System.out.println("Hint:");
-            System.out.println(firstMovie.hints[tries]);
-            System.out.println("Enter Answer:");
 
-            answer = scan2.nextLine();
-            if (!firstMovie.name.equals(answer)){
+                System.out.println("Press Any Key To Start Turn");
+                scan2.nextLine();
+
+            if (player1.getTurn()){
                 System.out.println("============================");
-                System.out.println("Wrong answer,try again \n" );
+                System.out.println(player1.getName() + "Turn to Guess");
+            } else {System.out.println("============================");
+                System.out.println(player2.getName() + "Turn to Guess");}
+
+
+            while (!movie.toLowerCase().equals(answer.toLowerCase())) {
+
+                System.out.println("============================");
+                System.out.println("Guess The Movie");
+                System.out.println("Hint: " + cMovie.hints[a]);
+                System.out.println("Enter Answer:");
+
+                answer = scan2.nextLine().toLowerCase();
+                if (!movie.toLowerCase().equals(answer.toLowerCase())) {
+                    System.out.println("============================");
+                    System.out.println("Wrong answer,try again \n");
+                    tries++;
+                    a++;
+                }
+
+                System.out.println(answer.toUpperCase());
+
+            if (movie.toLowerCase().equals(answer.toLowerCase())) {
+                if (player1.getTurn() == true) {
+                    player1.score = player1.score + 10 - tries;
+                    player1.changeTurn();
+                    player2.changeTurn();
+                } else {
+                    player2.score = player2.score + 10 - tries;
+                    player1.changeTurn();
+                    player2.changeTurn();
+                }
             }
 
-            tries++;
+            }
+            movieCounter++;
+            System.out.println("============================");
+            System.out.println("SCORE " + "\n" +
+                    player1.getName().toUpperCase() + " " + player1.score + "\n" +
+                    player2.getName().toUpperCase() + " " + player2.score);
 
-            System.out.println(answer);
+
         }
-        if (firstMovie.name.equals(answer))
-        {
-        switch(tries) {
+        if (player1.score > player2.score) {
+            System.out.println("============================");
+            System.out.println(player1.getName() + " IS THE WINNER!");
+            System.out.println("============================");
+        } else if (player1.score < player2.score) {
+            System.out.println("============================");
+            System.out.println(player2.getName() + " IS THE WINNER!");
+        } else if (player1.score == player2.score) {
+            System.out.println("============================");
+            System.out.println("IT IS A DRAW!");
+            System.out.println("============================");
+        }
 
-            case 1: if (player1.turn) player1.score = player1.score + 5;
-            else player2.score = player2.score + 5;
+            quit = false;}
 
-                break;
+    static void showScore() {
+        System.out.println("============================");
+        System.out.println("SCORE " + "\n" +
+                player1.getName().toUpperCase() + " " + player1.score + "\n" +
+                player2.getName().toUpperCase() + " " + player2.score);
+        System.out.println("Enter Any Key For Menu");
+        scan.next();
+                quit = false;
 
-            case 2: if (player1.turn) player1.score = player1.score + 3;
-            else player2.score = player2.score + 3;
-
-                break;
-
-            case 3: if (player1.turn) player1.score = player1.score + 2;
-            else player2.score = player2.score + 2;
-
-                break;
-
-            default: if (player1.turn) player1.score = player1.score + 1;
-            else player2.score = player2.score + 1;
-
-        } } System.out.println(player2.score);
-
-    player1.changeTurn();
     }
-
-
-        }
-
+}

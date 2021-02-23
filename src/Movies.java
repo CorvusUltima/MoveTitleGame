@@ -1,10 +1,14 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 
 public class Movies {
 
     String name;
 
-   String[] hints=new String[5];
+    String[] hints=new String[5];
 
+    static ArrayList<String> movieList = new ArrayList<>();
 
     void setAMovie() {
 
@@ -27,14 +31,14 @@ public class Movies {
           hints[2]="Computer programmer Thomas Anderson";
           hints[3]="Red or Blue pill";
           hints[4]="Neo is chosen one ";
-
-
-
-
-
-
    }
+}
 
+ static int getHint() {
+     Random gH = new Random();
 
+     int result = gH.nextInt(5);
 
-}}
+   return result; }
+
+}
