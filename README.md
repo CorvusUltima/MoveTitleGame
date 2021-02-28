@@ -13,7 +13,7 @@ Group 4 participated in the development of the project.
 
 	    
 ## Technologies
-Upgraded version of the basic Chilli Framework created by the D&C team.
+
 
 Java SE
 Intellij
