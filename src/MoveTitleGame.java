@@ -20,19 +20,50 @@ public class MoveTitleGame {
 
         public static void main(String[] args) throws IOException {
 
-        //nova Grana samo za mene
+            // Seed value
+           long seed = 5;
 
+            // Modulus parameter
+           long mod = 7;
 
+            // Multiplier term
+           long mult = 3;
 
+            // Increment term
+           long inc = 3;
+
+            // Number of Random numbers
+            // to be generated
+            int nMax = 10;
+
+            // To store random numbers
+           long [] randomN = new long[nMax];
+
+            // Function Call
+            Random rdm=new Random();
+
+             rdm.RNG( seed, mod,  mult, inc,  randomN,  nMax);
+
+            for (int i = 0; i < nMax; i++)
+            {
+                System.out.print(randomN[i] + " ");}
 
             Write HighScore=new Write(file_name,false);
             HighScore.ReadFile(file_name);
 
 
-            String answer;
+
+
+
+
+
+
+                String answer;
             Player player1=new Player();
             Player player2=new Player();
             PlayerNames(player1,player2);
+
+
 
         for (int i=0;i<MatchGame;i++)
         {
@@ -42,11 +73,11 @@ public class MoveTitleGame {
         }
         if (player1Points>player2Points)
         {
-            System.out.println("Congratulations "+"\t"+player1.Name+"is victorious ");
+            System.out.println("Congratulations "+"\t"+player1.name+"is victorious ");
             if (player1Points>highScorePoints)
-            {System.out.println("Congratulations "+"\t"+player1.Name+"\t"+"set a new record  ");
+            {System.out.println("Congratulations "+"\t"+player1.name+"\t"+"set a new record  ");
                 try {
-                    HighScore.WriteToFile(player1.Name);
+                    HighScore.WriteToFile(player1.name);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -57,12 +88,12 @@ public class MoveTitleGame {
         }
         else if(player2Points>player1Points)
         {
-            System.out.println("Congratulations "+"\t"+player2.Name+"\t"+"is victorious ");
+            System.out.println("Congratulations "+"\t"+player2.name+"\t"+"is victorious ");
             if(player2Points>highScorePoints)
             {
-                System.out.println("Congratulations "+"\t"+player2.Name+"\t"+"set a new record  ");
+                System.out.println("Congratulations "+"\t"+player2.name+"\t"+"set a new record  ");
                 try {
-                    HighScore.WriteToFile(player1.Name);
+                    HighScore.WriteToFile(player1.name);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -81,7 +112,9 @@ public class MoveTitleGame {
 
         }
 
-        static String randomise() {
+
+
+    static String randomise() {
 
         String Inception = "Inception";
         String Godfather = "Godfather";
@@ -113,29 +146,29 @@ public class MoveTitleGame {
 
         public static void FirstToPlay(Player player1,Player player2)
         {
-       System.out.print(player1.Name+"\t"+"\n" + "it's your turn to roll the dice good luck"+"\n");
+       System.out.print(player1.name+"\t"+"\n" + "it's your turn to roll the dice good luck"+"\n");
        pressAnyKeyToContinue();
-       player1.diceNum=DiceCast();
-       System.out.print(player1.Name+"\t"+"your dice cast is "+"\t"+player1.diceNum+"\n");
+       player1.iDiceNum=DiceCast();
+       System.out.print(player1.name+"\t"+"your dice cast is "+"\t"+player1.iDiceNum+"\n");
 
-       System.out.print(player2.Name+"\t"+"it's your turn to roll the dice good luck"+"\n");
+       System.out.print(player2.name+"\t"+"it's your turn to roll the dice good luck"+"\n");
        pressAnyKeyToContinue();
-       player2.diceNum=DiceCast();
-       System.out.print(player2.Name+"\t"+"your dice cast is"+"\t"+player2.diceNum+"\n");
+       player2.iDiceNum=DiceCast();
+       System.out.print(player2.name+"\t"+"your dice cast is"+"\t"+player2.iDiceNum+"\n");
 
 
-       if (player1.diceNum>player2.diceNum)
+       if (player1.iDiceNum>player2.iDiceNum)
        {
-           player1.FrstToPlay=true;
-           System.out.print(player1.Name+"\t"+"\n" + "Congratulations, you have the right to guess first"+"\n");
+           player1.bFrstToPlay=true;
+           System.out.print(player1.name+"\t"+"\n" + "Congratulations, you have the right to guess first"+"\n");
        }
-       else if(player1.diceNum<player2.diceNum)
+       else if(player1.iDiceNum<player2.iDiceNum)
        {
-           player2.FrstToPlay=true;
-           System.out.print(player2.Name+"\t"+"\n" +
+           player2.bFrstToPlay=true;
+           System.out.print(player2.name+"\t"+"\n" +
                    "Congratulations, you have the right to guess first"+"\n");
        }
-       else if(player1.diceNum== player2.diceNum)
+       else if(player1.iDiceNum== player2.iDiceNum)
        {
            System.out.print("\n" + "Draw, let's go one more time. "+"\n");
 
@@ -184,33 +217,33 @@ public class MoveTitleGame {
         Scanner input = new Scanner(System.in);
         String answer = input.nextLine();
 
-       if(player1.FrstToPlay)
+       if(player1.bFrstToPlay)
        {
            for(int i=0;i<5;i++,maxPoints-=5)
            {
-           System.out.print(player1.Name+"\t"+"is a first to play"+"\n");
+           System.out.print(player1.name+"\t"+"is a first to play"+"\n");
            System.out.print(movies.hints[i]+"\n");
-           System.out.print(player1.Name+"\t"+"Type your answer"+"\n");
-           player1.Answer = input.nextLine();
+           System.out.print(player1.name+"\t"+"Type your answer"+"\n");
+           player1.answer = input.nextLine();
 
-           if ( player1.Answer.toUpperCase().equals(movies.name.toUpperCase()))
+           if ( player1.answer.toUpperCase().equals(movies.name.toUpperCase()))
            {
                System.out.print("\n");
                System.out.print("\n" + "Congratulations, the answer is correct ");
                player1Points+=maxPoints;
-               System.out.print(player1.Name+"\t"+"now have "+"\t"+player1Points+"\t"+"points"+"\n");
+               System.out.print(player1.name+"\t"+"now have "+"\t"+player1Points+"\t"+"points"+"\n");
                break;
            }
 
-           else { System.out.print( player2.Name+"\t"+" now is your turn"+"\n");
-               System.out.print(player2.Name+"\t"+"Type your answer"+"\n");
-               player2.Answer = input.nextLine();
-               if ( player2.Answer.toUpperCase().equals(movies.name.toUpperCase()))
+           else { System.out.print( player2.name+"\t"+" now is your turn"+"\n");
+               System.out.print(player2.name+"\t"+"Type your answer"+"\n");
+               player2.answer = input.nextLine();
+               if ( player2.answer.toUpperCase().equals(movies.name.toUpperCase()))
                {
                    System.out.print("\n");
                    System.out.print("Congratulations, the answer is correct ");
                    player2Points+=maxPoints;
-                   System.out.print(player2.Name+"\t"+"now have "+"\t"+player2Points+"\t"+"points"+"\n");
+                   System.out.print(player2.name+"\t"+"now have "+"\t"+player2Points+"\t"+"points"+"\n");
                    break;
 
                }
@@ -220,36 +253,36 @@ public class MoveTitleGame {
              }
 
        }
-        else if(!player1.FrstToPlay)
+        else if(!player1.bFrstToPlay)
        {
                   for(int i=0;i<5;i++)
 
            {
-           System.out.print(player2.Name+"is a first to play"+"\n");
+           System.out.print(player2.name+"is a first to play"+"\n");
            System.out.print(movies.hints[i]+"\n");
-           System.out.print(player2.Name+"\t"+"Type your answer"+"\n");
-           player2.Answer = input.nextLine();
+           System.out.print(player2.name+"\t"+"Type your answer"+"\n");
+           player2.answer = input.nextLine();
 
-           if (player2.Answer.toUpperCase().equals(movies.name.toUpperCase()))
+           if (player2.answer.toUpperCase().equals(movies.name.toUpperCase()))
            {
                System.out.print("\n");
                System.out.print("Congratulations, the answer is correct ");
                player2Points+=maxPoints;
-               System.out.print(player2.Name+"\"\\t\"+now have "+"\t"+player2Points+"\t"+"points");
+               System.out.print(player2.name+"\"\\t\"+now have "+"\t"+player2Points+"\t"+"points");
                break;
            }
 
            else {
-               System.out.print( player1.Name+"\t"+" your turn to shoot "+"\n");
-               System.out.print(player1.Name+"\t"+"Type your answer"+"\n");
-               player1.Answer = input.nextLine();
+               System.out.print( player1.name+"\t"+" your turn to shoot "+"\n");
+               System.out.print(player1.name+"\t"+"Type your answer"+"\n");
+               player1.answer = input.nextLine();
 
-               if ( player1.Answer.toUpperCase().equals(movies.name.toUpperCase()))
+               if ( player1.answer.toUpperCase().equals(movies.name.toUpperCase()))
                {
                    System.out.print("\n");
                    System.out.print("Congratulations, the answer is correct "+"\n");
                    player1Points+=maxPoints;
-                   System.out.print(player1.Name+"\t"+"now have "+"\t"+player1Points+"\t"+"points"+"\n");
+                   System.out.print(player1.name+"\t"+"now have "+"\t"+player1Points+"\t"+"points"+"\n");
                    break;
                }
 
@@ -261,9 +294,9 @@ public class MoveTitleGame {
        public static void PlayerNames(Player player1,Player player2){
            Scanner input = new Scanner(System.in);
            System.out.print("player 1 name:"+"\n");
-           player1.Name = input.nextLine();
+           player1.name = input.nextLine();
            System.out.print("player 2 name:"+"\n");
-           player2.Name = input.nextLine();
+           player2.name = input.nextLine();
        }
 
     public static void gui()

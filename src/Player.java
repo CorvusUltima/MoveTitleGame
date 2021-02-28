@@ -1,10 +1,10 @@
 public class Player {
 
 
-    String Name;
-    boolean FrstToPlay=false;
-    int diceNum=0;
-    String Answer;
+    String name;
+    boolean bFrstToPlay=false;
+    int iDiceNum=0;
+    String answer;
 
 
 
