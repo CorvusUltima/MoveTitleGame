@@ -20,42 +20,9 @@ public class MoveTitleGame {
 
         public static void main(String[] args) throws IOException {
 
-            // Seed value
-           long seed = 5;
-
-            // Modulus parameter
-           long mod = 7;
-
-            // Multiplier term
-           long mult = 3;
-
-            // Increment term
-           long inc = 3;
-
-            // Number of Random numbers
-            // to be generated
-            int nMax = 10;
-
-            // To store random numbers
-           long [] randomN = new long[nMax];
-
-            // Function Call
-            Random rdm=new Random();
-
-             rdm.RNG( seed, mod,  mult, inc,  randomN,  nMax);
-
-            for (int i = 0; i < nMax; i++)
-            {
-                System.out.print(randomN[i] + " ");}
 
             Write HighScore=new Write(file_name,false);
             HighScore.ReadFile(file_name);
-
-
-
-
-
-
 
 
                 String answer;
@@ -68,7 +35,12 @@ public class MoveTitleGame {
         for (int i=0;i<MatchGame;i++)
         {
             Movies movies = new Movies();
-            StartMovieGame(player1,player2, movies);
+            Movies movie0=movies;
+
+
+            System.out.print("\n" + "this is a quess movie game,"+"\n"+
+                    "first played by the player who gets the higher number on the dice"+"\n");
+            StartMovieGame(player1,player2, movie0);
 
         }
         if (player1Points>player2Points)
@@ -186,7 +158,6 @@ public class MoveTitleGame {
         {
 
     movies.SetAMovie();
-    System.out.print("\n" + "this is a quess movie game,"+"\n"+"first played by the player who gets the higher number on the dice"+"\n");
     pressAnyKeyToContinue();
     FirstToPlay(player1,player2);
     System.out.print("\n" + "It's time to guess"+"\n");
