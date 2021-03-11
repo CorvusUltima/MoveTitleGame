@@ -1,17 +1,21 @@
+import java.nio.file.Files;
 import java.util.Scanner;
 
 public class Player {
 
-
-    String name;
+    String sName;
     boolean bFrstToPlay=false;
-    int iDiceNum=0;
+    int nDice =0;
     String answer;
     void SetName()
     {
         Scanner input = new Scanner(System.in);
-        name = input.nextLine();
+        sName = input.nextLine();
     };
+    static int DiceRoll()
+    {
+        return rng.rdm_int(1,5);  // method is defined in rng class;
+    }
 
 
 }

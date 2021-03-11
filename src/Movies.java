@@ -59,7 +59,7 @@ public class Movies {
       {
     name="GoodFellas";
           hints[0]="“Jimmy was the kind of guy who rooted for the bad guy in movies.” ";
-          hints[1]="Is a 1990 American crime film directed";
+          hints[1]="Is a 1990 American crime film";
           hints[2]="The film stars Robert De Niro, Ray Liotta, Joe Pesci, ";
           hints[3]="directed by Martin Scorsese";
           hints[4]="Good :::?";
