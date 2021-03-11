@@ -1,7 +1,4 @@
 
-
-import javax.swing.*;
-import java.awt.*;
 import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.Scanner;
@@ -269,13 +266,6 @@ public class MoveTitleGame {
 
        }
     }
-       public static void PlayerNames(Player player1,Player player2){
-           Scanner input = new Scanner(System.in);
-           System.out.print("player 1 name:"+"\n");
-           player1.name = input.nextLine();
-           System.out.print("player 2 name:"+"\n");
-           player2.name = input.nextLine();
-       }
 
 
 
