@@ -4,8 +4,9 @@ import java.util.Scanner;
 public class Player {
 
     String sName;
-    boolean bFrstToPlay=false;
+    boolean bFirstToPlay =false;
     int nDice =0;
+    int nPoints=0;
     String answer;
     void SetName()
     {

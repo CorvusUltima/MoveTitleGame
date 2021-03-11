@@ -1,6 +1,7 @@
 public class Movies {
 
    String name;
+   int nHintCurent=0;
 
    String[] hints=new String[5];
 
