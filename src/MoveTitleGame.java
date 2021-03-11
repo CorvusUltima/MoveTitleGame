@@ -9,8 +9,8 @@ import java.util.Scanner;
 
 public class MoveTitleGame {
     static String file_name = "HS.txt";
-    static int MatchGame = 2;
-    static int nPoints = 10;
+    static int nMatchGame = 2;
+    static int nPointsMax = 30;
     static int highScorePoints = 0;
     static int nPlayers = 2;
 
@@ -24,7 +24,7 @@ public class MoveTitleGame {
 
 
         Write HighScore = new Write(file_name, false);
-        HighScore.ReadFile(file_name);
+
 
         Player player[] = new Player[2];
 
@@ -50,38 +50,45 @@ public class MoveTitleGame {
 
         pressAnyKeyToContinue();
 
-        int nTurnCounter = (player[0].nDice > player[1].nDice ? 0 : 1);
-        int nTurn = (player[0].nDice > player[1].nDice ? 0 : 1);
-        int nHintCurrent = 0;
-        Movies movies = new Movies();
-        movies.SetAMovie();
+
+        while(nMatchGame>0) {
+            int nTurnCounter = (player[0].nDice > player[1].nDice ? 0 : 1);
+            int nTurn = (player[0].nDice > player[1].nDice ? 0 : 1);
+            int nHintCurrent = 0;
+            Movies movies = new Movies();
+            movies.SetAMovie();
 
 
-        while (true) {
+            while (true) {
 
-            Scanner input = new Scanner(System.in);
+                Scanner input = new Scanner(System.in);
 
-            int nPlayerIndex = nTurnCounter % 2;
+                int nPlayerIndex = nTurnCounter % 2;
 
-            if (nTurn == nPlayerIndex) {
-                System.out.print(movies.hints[nHintCurrent++]);
+
+                if (nTurn == nPlayerIndex) {
+                    System.out.print(movies.hints[nHintCurrent++]);
+                }
+                System.out.print(player[nPlayerIndex].sName + "\t" + "Type your answer" + "\n");
+                player[nPlayerIndex].answer = input.nextLine();
+
+                if (player[nPlayerIndex].answer.equals(movies.name)) {
+                    player[nPlayerIndex].nPoints += (nPointsMax - (5 * (nHintCurrent)));
+                    System.out.print(player[nPlayerIndex].sName + "\t" + "Your answer is correct" + "\n");
+                    ;
+
+                    break;
+                } else {
+
+                    System.out.print(player[nPlayerIndex].sName + "\t" + "Your answer is wrong" + "\n");
+                    ++nTurnCounter;
+                    ;
+                }
+
+
             }
-            System.out.print(player[nPlayerIndex].sName + "\t" + "Type your answer" + "\n");
-            player[nPlayerIndex].answer = input.nextLine();
-
-            if (player[nPlayerIndex].answer.equals(movies.name)) {
-                player[nPlayerIndex].nPoints+=nPoints;
-                System.out.print(player[nPlayerIndex].sName + "\t" + "Your answer is correct" + "\n");
-                ;
-                break;
-            } else {
-
-                System.out.print(player[nPlayerIndex].sName + "\t" + "Your answer is wrong" + "\n");
-                ++nTurnCounter;
-                ;
-            }
+            nMatchGame--;
         }
-
 
         if (player[0].nPoints > player[1].nPoints) {
             System.out.println("Congratulations " + "\t" + player[0].sName + "is victorious ");
