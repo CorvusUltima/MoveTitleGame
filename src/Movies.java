@@ -4,11 +4,7 @@ public class Movies {
 
    String[] hints=new String[5];
 
-   boolean bInception=false;
-   boolean bGodfather=false;
-   boolean bMatrix=false;
-   boolean bFightClub=false;
-   boolean bGoodfellas=false;
+
 
 
     void SetAMovie() {
