@@ -23,9 +23,6 @@ public class MoveTitleGame {
         String content = Files.readString(Path.of("src/Movies.txt"), StandardCharsets.US_ASCII);// created string file for future use
 
 
-        Write HighScore = new Write(file_name, false);
-
-
         Player player[] = new Player[2];
 
         for (int i = 0; i < nPlayers; i++) {
@@ -88,7 +85,7 @@ public class MoveTitleGame {
         }
 
 
-        int nPlayerWin = (player[0].nPoints > player[1].nPoints ? 0 : 1);
+                      int nPlayerWin = (player[0].nPoints > player[1].nPoints ? 0 : 1);
 
 
                        if( nPlayerWin==0||nPlayerWin==1 )
