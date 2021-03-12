@@ -67,16 +67,15 @@ public class MoveTitleGame {
 
 
                 if (nTurn == nPlayerIndex) {
-                    System.out.print(movies.hints[nHintCurrent++]);
+                    System.out.print(movies.hints[nHintCurrent++]+"\n");
                 }
-                System.out.print(player[nPlayerIndex].sName + "\t" + "Type your answer" + "\n");
+                System.out.print(player[nPlayerIndex].sName + "\t" + "Type your answer \n");
                 player[nPlayerIndex].answer = input.nextLine();
 
                 if (player[nPlayerIndex].answer.equals(movies.name)) {
                     player[nPlayerIndex].nPoints += (nPointsMax - (5 * (nHintCurrent)));
                     System.out.print(player[nPlayerIndex].sName + "\t" + "Your answer is correct" + "\n");
                     ;
-
                     break;
                 } else {
 
@@ -84,53 +83,28 @@ public class MoveTitleGame {
                     ++nTurnCounter;
                     ;
                 }
-
-
-            }
+        }
             nMatchGame--;
         }
 
-        if (player[0].nPoints > player[1].nPoints) {
-            System.out.println("Congratulations " + "\t" + player[0].sName + "is victorious ");
-            if (player[0].nPoints > highScorePoints) {
-                System.out.println("Congratulations " + "\t" + player[0].sName + "\t" + "set a new record  ");
-                try {
-                    HighScore.WriteToFile(player[0].sName);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                HighScore.ReadFile(file_name);
 
-            }
+        int nPlayerWin = (player[0].nPoints > player[1].nPoints ? 0 : 1);
 
-        } else if (player[1].nPoints > player[0].nPoints) {
-            System.out.println("Congratulations " + "\t" + player[1].sName + "\t" + "is victorious ");
 
-            if (player[1].nPoints > highScorePoints) {
-                System.out.println("Congratulations " + "\t" + player[1].sName + "\t" + "set a new record  ");
-                try {
-                    HighScore.WriteToFile(player[0].sName);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                HighScore.ReadFile(file_name);
+                       if( nPlayerWin==0||nPlayerWin==1 )
+                       {
+                           System.out.println("Congratulations " + "\t" + player[nPlayerWin].sName + "\t is victorious ");
 
-            }
+                       }
 
-        } else {
-            System.out.print(" DRAW");
-        }
+                        else {
+                         System.out.print(" DRAW");
+                        }
+
+
 
 
     }
-
-
-
-
-
-
-
-
 
     static String randomise() {
 
@@ -161,9 +135,6 @@ public class MoveTitleGame {
         else return "Error in Random method";
 
         }
-
-
-
 
 
        public static void pressAnyKeyToContinue()
