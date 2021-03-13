@@ -20,7 +20,21 @@ public class MoveTitleGame {
     {
 
 
+
+
+
         String content = Files.readString(Path.of("src/Movies.txt"), StandardCharsets.US_ASCII);// created string file for future use
+        String out= Write.GetNextText(content, " NAME:","HINT 1",1);
+
+
+
+        System.out.print(out);
+
+        pressAnyKeyToContinue();
+
+
+
+
 
 
         Player player[] = new Player[2];
@@ -57,25 +71,19 @@ public class MoveTitleGame {
 
 
             while (true) {
-
                 Scanner input = new Scanner(System.in);
-
                 int nPlayerIndex = nTurnCounter % 2;
-
-
                 if (nTurn == nPlayerIndex) {
                     System.out.print(movies.hints[nHintCurrent++]+"\n");
                 }
                 System.out.print(player[nPlayerIndex].sName + "\t" + "Type your answer \n");
                 player[nPlayerIndex].answer = input.nextLine();
-
                 if (player[nPlayerIndex].answer.equals(movies.name)) {
                     player[nPlayerIndex].nPoints += (nPointsMax - (5 * (nHintCurrent)));
                     System.out.print(player[nPlayerIndex].sName + "\t" + "Your answer is correct" + "\n");
                     ;
                     break;
                 } else {
-
                     System.out.print(player[nPlayerIndex].sName + "\t" + "Your answer is wrong" + "\n");
                     ++nTurnCounter;
                     ;
@@ -83,24 +91,15 @@ public class MoveTitleGame {
         }
             nMatchGame--;
         }
-
-
                       int nPlayerWin = (player[0].nPoints > player[1].nPoints ? 0 : 1);
 
-
-                       if( nPlayerWin==0||nPlayerWin==1 )
+                       if( player[0].nPoints==player[1].nPoints )
                        {
-                           System.out.println("Congratulations " + "\t" + player[nPlayerWin].sName + "\t is victorious ");
-
+                           System.out.print(" DRAW");
                        }
-
                         else {
-                         System.out.print(" DRAW");
+                           System.out.println("Congratulations " + "\t" + player[nPlayerWin].sName + "\t is victorious ");
                         }
-
-
-
-
     }
 
     static String randomise() {
@@ -132,8 +131,6 @@ public class MoveTitleGame {
         else return "Error in Random method";
 
         }
-
-
        public static void pressAnyKeyToContinue()
         {
         System.out.println("Press Enter key to continue...");
@@ -147,8 +144,6 @@ public class MoveTitleGame {
         }
 
     }
-
-
        }
 
 

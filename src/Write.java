@@ -44,4 +44,25 @@ public class Write {
 
 
 
+   static String  GetNextText(String file,String readAfterThis,String readUntilThis,int occurrence)
+   {
+
+       String out="";
+       int startingPosition =0;
+
+       do{
+           startingPosition = file.indexOf(readAfterThis, startingPosition)+ readAfterThis.length();
+       }while(--occurrence > 0);
+       int endingPosition = file.indexOf(readUntilThis, startingPosition);
+
+       out = file.substring(startingPosition ,endingPosition);
+       return out;
+   }
+
+
+
+
+
+
+
 }
