@@ -3,8 +3,6 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class rng {
 
-
-
     static int rdm_int(int min, int max)
     {
          int rand = ThreadLocalRandom.current().nextInt(min, max + 1);
@@ -18,8 +16,8 @@ public class rng {
     }
     static boolean rdm_bool(float true_chance)
     {
+
         return rdm_float(0.0f, 100.0f) <= true_chance;
     }
-
 
 }
