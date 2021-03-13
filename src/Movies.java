@@ -25,7 +25,6 @@ public class Movies {
         while (m.find()) {
             nMovie++;
         }
-        System.out.print(nMovie);
         int randomMovie = rng.rdm_int(1,nMovie);
 
 
