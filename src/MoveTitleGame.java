@@ -48,7 +48,8 @@ public class MoveTitleGame {
             int nHintCurrent = 0;
             Movies movies = new Movies();
             movies.SetAMovie();
-
+            //System.out.print(movies.name+"spacejetulilinije");
+            //pressAnyKeyToContinue();
 
             while (true) {
                 Scanner input = new Scanner(System.in);

@@ -29,11 +29,11 @@ public class Movies {
         int randomMovie = rng.rdm_int(1,nMovie);
 
 
-        name = Write.GetNextText(content, " NAME:", ";", randomMovie);
+        name = Write.GetNextText(content, " NAME:", "HINT", randomMovie);
 
         for (int i = 0; i < 5; ++i) {
             String startPos=("HINT "+(i+1)+ ':');
-            hints[i] = Write.GetNextText(content, startPos, ";", randomMovie); ;
+            hints[i] = Write.GetNextText(content, startPos, "HINT", randomMovie); ;
         }
 
 

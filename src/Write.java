@@ -54,8 +54,9 @@ public class Write {
            startingPosition = file.indexOf(readAfterThis, startingPosition)+ readAfterThis.length();
        }while(--occurrence > 0);
        int endingPosition = file.indexOf(readUntilThis, startingPosition);
-
+       if(endingPosition < 0) endingPosition = file.length();
        out = file.substring(startingPosition ,endingPosition);
+       out = out. trim();
        return out;
    }
 
