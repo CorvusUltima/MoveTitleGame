@@ -33,8 +33,8 @@
 
 
            NAME:GoodFellas
-           hints1: Jimmy was the kind of guy who rooted for the bad guy in movies.
-           hints2:Is a 1990 American crime film directed"
-           hints3:The film stars Robert De Niro, Ray Liotta, Joe Pesci,
-           hints4:directed by Martin Scorsese
-           hints5:Good :::?
+           HINT 1: Jimmy was the kind of guy who rooted for the bad guy in movies.
+           HINT 2:Is a 1990 American crime film directed"
+           HINT 3:The film stars Robert De Niro, Ray Liotta, Joe Pesci,
+           HINT 4:directed by Martin Scorsese
+           HINT 5:Good :::?
