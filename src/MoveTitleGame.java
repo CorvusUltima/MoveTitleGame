@@ -1,9 +1,6 @@
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.concurrent.ThreadLocalRandom;
+
 import java.util.Scanner;
 
 
@@ -51,8 +48,6 @@ public class MoveTitleGame {
             int nHintCurrent = 0;
             Movies movies = new Movies();
             movies.SetAMovie();
-            System.out.print("djoka"+movies.name+"djoka");
-            pressAnyKeyToContinue();
 
 
             while (true) {
