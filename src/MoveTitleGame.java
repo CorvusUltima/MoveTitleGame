@@ -51,6 +51,8 @@ public class MoveTitleGame {
             int nHintCurrent = 0;
             Movies movies = new Movies();
             movies.SetAMovie();
+            System.out.print("djoka"+movies.name+"djoka");
+            pressAnyKeyToContinue();
 
 
             while (true) {
@@ -61,7 +63,7 @@ public class MoveTitleGame {
                 }
                 System.out.print(player[nPlayerIndex].sName + "\t" + "Type your answer \n");
                 player[nPlayerIndex].answer = input.nextLine();
-                if (player[nPlayerIndex].answer.equals(movies.name)) {
+                if (player[nPlayerIndex].answer.toLowerCase().equals(movies.name.toLowerCase())) {
                     player[nPlayerIndex].nPoints += (nPointsMax - (5 * (nHintCurrent)));
                     System.out.print(player[nPlayerIndex].sName + "\t" + "Your answer is correct" + "\n");
                     ;

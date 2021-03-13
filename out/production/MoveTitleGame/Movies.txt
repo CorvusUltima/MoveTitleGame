@@ -1,30 +1,30 @@
 
 
-         NAME:Inception
-         HINT 1:Is a 2010 science fiction action film
-         HINT 2:You musn't be afraid to dream a little bigger darling. ...
-         HINT 3:Written and directed by Christopher Nolan
-         HINT 4:Dominick \"Dom\" Cobb and Arthur are \"extractors\"
-         HINT 5:The film stars Leonardo DiCaprio as a professional thief
+         NAME:Inception;
+         HINT 1:Is a 2010 science fiction action film;
+         HINT 2:You musn't be afraid to dream a little bigger darling. ...;
+         HINT 3:Written and directed by Christopher Nolan;
+         HINT 4:Dominick \"Dom\" Cobb and Arthur are \"extractors\";
+         HINT 5:The film stars Leonardo DiCaprio as a professional thief;
 
 
-          NAME:Godfather
-          HINT 1:Revenge is a dish best served cold.
-          HINT 2:Directed by Francis Ford Coppola
-          HINT 3:"\"A friend should always underestimate your virtues and an enemy overestimate your faults.\" ...
-          HINT 4:portrayal of the rise of the Corleone crime Family to power,
-          HINT 5:I'm gonna make him an offer he can't refuse. ...
+          NAME:Godfather;
+          HINT 1:Revenge is a dish best served cold.;
+          HINT 2:Directed by Francis Ford Coppola;
+          HINT 3:"\"A friend should always underestimate your virtues and an enemy overestimate your faults.\" ...;
+          HINT 4:portrayal of the rise of the Corleone crime Family to power,;
+          HINT 5:I'm gonna make him an offer he can't refuse. ...;
 
 
-          NAME:Matrix
-          HINT 1:Is a 1999 American science fiction action film
-          HINT 2:Bodies as an energy source
-          HINT 3:Computer programmer Thomas Anderson
-          HINT 4:Red or Blue pill
-          HINT 5:Neo is chosen one
+          NAME:Matrix;
+          HINT 1:Is a 1999 American science fiction action film;
+          HINT 2:Bodies as an energy source;
+          HINT 3:Computer programmer Thomas Anderson;
+          HINT 4:Red or Blue pill;
+          HINT 5:Neo is chosen one;
 
 
-          NAME:Fight Club
+          NAME:Fight Club;
           HINT 1:The first soap was made from heroes' ashes,";
           HINT 2:Project Mayhem";
           HINT 3:Directed by David Fincher";
@@ -32,9 +32,9 @@
           HINT 5:He and Tyler are the same person,";
 
 
-           NAME:GoodFellas
-           hints1: Jimmy was the kind of guy who rooted for the bad guy in movies.
+           NAME:GoodFellas;
+           hints1: Jimmy was the kind of guy who rooted for the bad guy in movies.;
            hints2:Is a 1990 American crime film directed";
-           hints3:The film stars Robert De Niro, Ray Liotta, Joe Pesci,
-           hints4:directed by Martin Scorsese
-           hints5:Good :::?
+           hints3:The film stars Robert De Niro, Ray Liotta, Joe Pesci,;
+           hints4:directed by Martin Scorsese;
+           hints5:Good :::?;
