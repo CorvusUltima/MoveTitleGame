@@ -70,7 +70,8 @@ public class MoveTitleGame {
                     ;
                 }
         }
-            nMatchGame--;
+             movies.SetAMovie();
+             nMatchGame--;
         }
                       int nPlayerWin = (player[0].nPoints > player[1].nPoints ? 0 : 1);
 
