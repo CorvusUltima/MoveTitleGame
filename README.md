@@ -39,4 +39,9 @@ The project has certain shortcomings that were originally created by the limits 
  *   [Movies.Java](src/Movies.java).
  
   *   [Player.Java](src/Player.java).
+  
+  *   [rng.Java](src/rng.java).
+
+
+  *   [Write.Java](src/Write.java).
 
