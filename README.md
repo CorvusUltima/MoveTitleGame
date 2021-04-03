@@ -28,20 +28,9 @@ To run this project, install it locally using GitHub link URL ;
 
 
 ## Note
-The project has certain shortcomings that were originally created by the limits of the  the knowledge that the Group team possessed at the time of project planning.
 
-
+The project is currently under construction
 
 ## Info
 
- *   [MovieTitleGame.Java](src/MoveTitleGame.java).
- 
- *   [Movies.Java](src/Movies.java).
- 
-  *   [Player.Java](src/Player.java).
-  
-  *   [rng.Java](src/rng.java).
-
-
-  *   [Write.Java](src/Write.java).
-
+More info to be addet .
