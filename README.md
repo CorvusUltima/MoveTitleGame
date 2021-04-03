@@ -29,8 +29,17 @@ To run this project, install it locally using GitHub link URL ;
 
 ## Note
 
-The project is currently under construction
+The project is done, but do have some bugs that need to be fixed .
 
 ## Info
 
-More info to be addet .
+ *   [MovieTitleGame.Java](src/MoveTitleGame.java).
+ 
+ *   [Movies.Java](src/Movies.java).
+ 
+  *   [Player.Java](src/Player.java).
+  
+  *   [rng.Java](src/rng.java).
+
+
+  *   [Write.Java](src/Write.java).
